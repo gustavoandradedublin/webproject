@@ -1,0 +1,234 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+header {
+    background-color: #001f3f; /* Azul escuro */
+    color: #fff; /* Letras brancas */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    max-height: 50px; /* Ajuste conforme necessário */
+}
+
+nav {
+    flex: 1; /* Ocupa todo o espaço disponível */
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 20px; /* Espaçamento igual entre os links */
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+/* Estilos adicionais para a página Home */
+.home-banner {
+    background-color: #ff8c00; /* Laranja */
+    text-align: center;
+    padding: 20px;
+}
+
+.overlay {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay h1 {
+    font-size: 2.5em; /* Tamanho da fonte para o título */
+    margin-bottom: 10px;
+}
+
+.overlay p {
+    font-size: 1.2em; /* Tamanho da fonte para o texto */
+}
+
+.home-content {
+    position: relative;
+    height: 100vh; 
+    background: url('Images/background_home.jpg') center/cover; /* Substitua 'background-image.jpg' pelo caminho da sua imagem de fundo */
+    color: #fff; /* Cor do texto no conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.contact-button {
+    display: inline-block;
+    background-color: #ff8c00; /* Laranja */
+    color: #fff; /* Cor do texto */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+/* Estilos adicionais para a página Serviços */
+.banner {
+    background-color: #ff8c00; /* Laranja */
+    text-align: center;
+    padding: 20px;
+}
+
+.banner-content {
+    max-width: 600px; /* Define a largura máxima do conteúdo do banner */
+    margin: 0 auto; /* Centraliza o conteúdo do banner */
+}
+
+.services {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que os serviços quebrem para a próxima linha em telas menores */
+}
+
+.service {
+    text-align: center;
+    margin: 20px;
+    max-width: 300px; /* Define uma largura máxima para cada serviço */
+}
+
+.service img {
+    width: 100%; /* Ajusta o tamanho da imagem para ocupar 100% da largura do contêiner pai */
+    max-width: 200px; /* Define uma largura máxima para a imagem */
+    height: auto; /* Garante que a altura seja ajustada proporcionalmente à largura */
+}
+/* Estilos adicionais para a página Feedback */
+
+.feedback-container{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.feedback-container .card{
+    position: relative;
+    width: 280px;
+    height: 400px;
+    margin: 30px;
+    box-shadow: 20px 20px 50 px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.card {
+    background-color: #ffff008e; /* Cor de fundo dos cards */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    
+}
+
+.reviews-form-container {
+    width: 45%;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.checkbox-option {
+    display: flex;
+    align-items: center;
+}
+
+.star-rating {
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.star-rating .star {
+    color: #ffd700; /* Cor das estrelas */
+    margin: 0 5px;
+}
+.reviews-animation-container {
+    width: 50%;
+    overflow: hidden;
+}
+
+.review {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+    margin-bottom: 20px;
+}
+
+.slide-in-animation .review {
+    opacity: 1;
+    transform: translateY(0);
+}
+.review {
+    /* Seus estilos existentes para a animação e posição inicial */
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.5s, transform 0.5s;
+    margin-bottom: 20px;
+}
+
+.show-feedback {
+    opacity: 1;
+    transform: translateX(0);
+}
+/* Estilos adicionais para a página Fale conosco */
+.contato-banner {
+    background-color: #ff8c00; /* Laranja */
+    text-align: center;
+    padding: 20px;
+}
+
+.contato-content {
+    max-width: 600px; /* Define a largura máxima do conteúdo do banner */
+    margin: 0 auto; /* Centraliza o conteúdo do banner */
+}
+
+    /* Adicione esta parte ao seu estilo CSS existente */
+    .checkbox-option {
+        display: inline-block;
+        margin-right: 20px; /* Ajuste o espaçamento conforme necessário */
+    }
+    .form-group select, .checkbox-option label {
+        font-weight: normal; /* Remover o negrito das opções */
+    }
+    .form-group label[for="longTerm"],
+    .form-group label[for="specificDate"] {
+        font-weight: normal; /* Remover o negrito das perguntas */
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-group div {
+        margin-bottom: 10px; /* Ajuste o espaçamento entre as opções */
+    }
+
+    .form-group input[type="radio"],
+    .form-group input[type="checkbox"] {
+        margin-right: 5px; /* Adicione um espaçamento entre o checkbox/radio e o rótulo */
+    }
+  

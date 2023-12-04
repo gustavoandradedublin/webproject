@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>We Can Do It! - Quem Somos</title>
+     <!-- Adicione a tag <audio> sem o atributo autoplay -->
+<audio id="backgroundAudio" loop>
+    <source src="Sound/sound_background.mp3" type="audio/mp3">
+</audio>
+
+<!-- Adicione um botão com um emoji de autofalante -->
+<button onclick="toggleAudio()">
+    <span role="img" aria-label="Speaker Emoji">🔊</span> Toggle Audio
+</button>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="logo.png" alt="We Can Do It!"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quem-somos.html">Quem Somos</a></li>
+                <li><a href="servicos.html">Serviços</a></li>
+                <li><a href="feedback.html">Feedback dos Clientes</a></li>
+                <li><a href="contato.html">Fale Conosco</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Conteúdo da página Quem Somos -->
+    <section>
+        <h1>Quem Somos</h1>
+        <!-- Outro conteúdo da página Quem Somos -->
+    </section>
+    <!-- Outras seções e conteúdo aqui -->
+</body>
+<script>
+    function toggleAudio() {
+        var audio = document.getElementById("backgroundAudio");
+
+        // Verifique se o áudio está pausado e alterne entre reproduzir e pausar
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>We Can Do It! - Feedback dos Clientes</title>
+      <!-- Adicione a tag <audio> sem o atributo autoplay -->
+<audio id="backgroundAudio" loop>
+    <source src="Sound/sound_background.mp3" type="audio/mp3">
+</audio>
+
+<!-- Adicione um botão com um emoji de autofalante -->
+<button onclick="toggleAudio()">
+    <span role="img" aria-label="Speaker Emoji">🔊</span> Music
+</button>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="logo.png" alt="We Can Do It!"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="servicos.html">Services</a></li>
+                <li><a href="feedback.html">Customer Feedback</a></li>
+                <li><a href="contato.html">Talk to Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contato-banner">
+        <div class="contato-content">
+            <h2>Customers Feedback</h2>
+            <p>Here you can read some reviews of our services left by our customers. Feel free to leave feedback on our services, through your feedback we can improve our service even further.</p>
+        </div>
+    </section>
+    <!-- Conteúdo da página Feedback dos Clientes -->
+    <!-- Seção de Avaliações -->
+    <section class="customer-reviews">
+        <div class="feedback-container">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Reception Service</h3>
+                    <p>"Exceptional first impressions every time! The receptionist went above and beyond, turning my Monday frown into a lobby full of smiles. 5/5, would greet again!"</p><br><br><br>
+                    <p>"If friendliness were an Olympic sport, the receptionist would take gold. Navigated my questions like a GPS, but with a much warmer voice. Solid 4.8/5!"</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Cleaning Service</h3>
+                    <p>"I didn't know my house could sparkle until the cleaning team showed up. They deserve a medal for making chores look this good. 5/5, absolutely gleaming!"</p><br><br><br>
+                    <p>"My place went from 'eh' to 'ahh' after the cleaning crew worked their magic. Even my dust bunnies were impressed. 4.9/5, dust-free high-five!"</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Security Service</h3>
+                    <p>"These security folks are like human nightlights—keeping the dark corners secure. I sleep like a baby, knowing they're on watch. 4.8/5, lights out for worries!"</p><br><br><br>
+                    <p>"Feeling safer than my grandma's secret cookie recipe. The security team is so good; even my pet hamster feels protected. 4.7/5, security with a side of peace."</p>
+                </div>
+            </div>
+                       
+        </div>    
+            <!-- Feedbacks aqui -->
+           
+            <!-- Mais feedbacks conforme necessário -->
+        
+    </section>
+    
+    <script type="text/javascript" src="Pages/vanilla-tilt.js"></script>
+    <script>VanillaTilt.init(document.querySelectorAll(".card"));</script>
+</body>
+<script>
+    function toggleAudio() {
+        var audio = document.getElementById("backgroundAudio");
+
+        // Verifique se o áudio está pausado e alterne entre reproduzir e pausar
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+</script>
+</html>

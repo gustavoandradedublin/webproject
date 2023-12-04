@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>We Can Do It! - Talk to us!</title>
+    
+       <!-- Adicione a tag <audio> sem o atributo autoplay -->
+<audio id="backgroundAudio" loop>
+    <source src="Sound/sound_background.mp3" type="audio/mp3">
+</audio>
+
+<!-- Adicione um botão com um emoji de autofalante -->
+<button onclick="toggleAudio()">
+    <span role="img" aria-label="Speaker Emoji">🔊</span> Music
+</button>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .contato-banner {
+            background-color: #ff8c00;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .contato-content, .contato-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contato-form {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        #datePickerContainer {
+            display: none;
+        }
+
+        #simulationLink {
+            color: blue;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 10px;
+            display: block;
+        }
+
+        #simulationContainer {
+            display: none;
+            margin-top: 10px;
+        }
+
+        #simulationResult {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img src="logo.png" alt="We Can Do It!"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="servicos.html">Services</a></li>
+                <li><a href="feedback.html">Customer Feedback</a></li>
+                <li><a href="contato.html">Talk to Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner laranja centralizado -->
+    <section class="contato-banner">
+        <div class="contato-content">
+            <h2>Get in touch and get your quote</h2>
+            <p>Our team will be prepared to offer the best professionals, services and clarify any doubts you may have.</p>
+        </div>
+    </section>
+
+    <!-- Formulário de Contato -->
+    <section class="contato-form">
+        <form id="contactForm" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contactPreference">How do you prefer to be contacted?</label>
+                <select id="contactPreference" name="contactPreference" required>
+                    <option value="call">Call</option>
+                    <option value="sms">SMS</option>
+                    <option value="email">Email</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>What type of service are you looking for?</label>
+                <div class="checkbox-option">
+                    <label for="receptionist">Receptionist</label>
+                    <input type="checkbox" id="receptionist" name="serviceType" value="receptionist">
+                </div>
+                <div class="checkbox-option">
+                    <label for="security">Security</label>
+                    <input type="checkbox" id="security" name="serviceType" value="security">
+                </div>
+                <div class="checkbox-option">
+                    <label for="cleaning">Cleaning</label>
+                    <input type="checkbox" id="cleaning" name="serviceType" value="cleaning">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="contractType">Are you looking for a long term contract or for a specific date?</label>
+                <div>
+                    <input type="radio" id="longTerm" name="contractType" value="longTerm" required>
+                    <label for="longTerm">Long term contract</label>
+                </div>
+                <div>
+                    <input type="radio" id="specificDate" name="contractType" value="specificDate" required>
+                    <label for="specificDate">Specific date</label>
+                </div>
+            </div>
+            <div class="form-group" id="datePickerContainer" style="display: none;">
+                <label for="contractType">Select your dates:</label>
+                <div class="date-range">
+                    <label for="startDate">From:</label>
+                    <input type="date" id="startDate" name="startDate" required>
+            
+                    <label for="endDate">To:</label>
+                    <input type="date" id="endDate" name="endDate" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="numProfessionals">How many professionals do you need?</label>
+                <a id="simulationLink">Click here and make a simulation of how many professionals do you need</a>
+                <div id="simulationContainer">
+                    <div id="simulationResult"></div>
+                </div>
+                <input type="number" id="numProfessionals" name="numProfessionals" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Leave your message:</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Outras seções e conteúdo aqui -->
+<script>
+     function validateForm() {
+        var firstName = document.getElementById('firstName').value.trim();
+        var lastName = document.getElementById('lastName').value.trim();
+        var phoneNumber = document.getElementById('phoneNumber').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var contactPreference = document.getElementById('contactPreference').value;
+        var serviceTypeCheckboxes = document.querySelectorAll('input[name="serviceType"]:checked');
+        var contractType = document.querySelector('input[name="contractType"]:checked');
+        var startDate = document.getElementById('startDate').value;
+        var endDate = document.getElementById('endDate').value;
+        var numProfessionals = document.getElementById('numProfessionals').value.trim();
+        var message = document.getElementById('message').value.trim();
+
+        // Verificar se todos os campos obrigatórios estão preenchidos
+        if (!firstName || !lastName || !phoneNumber || !email || !contactPreference || serviceTypeCheckboxes.length === 0 || !contractType || (contractType.value === 'specificDate' && (!startDate || !endDate)) || !numProfessionals || !message) {
+            alert('Please fill in all required fields.');
+            return false;
+        }
+
+        // Verificar se o número de profissionais é um número positivo
+        if (isNaN(numProfessionals) || parseInt(numProfessionals) <= 0) {
+            alert('Please enter a valid number of professionals.');
+            return false;
+        }
+        if (submitForm()) {
+            alert('Thank you for your contact. We will reply to you as soon as possible.');
+        }
+        
+        return false;
+    }
+
+    function submitForm() {
+        // Adicione aqui a lógica para exibir a mensagem ao usuário
+        alert('Thank you for your contact. We will reply to you as soon as possible.');
+        // Você pode redirecionar o usuário para outra página ou realizar outras ações, se necessário.
+    }
+</script>
+    <script src="simulation.js" defer></script>
+    <script>
+        function toggleAudio() {
+        var audio = document.getElementById("backgroundAudio");
+
+        // Verifique se o áudio está pausado e alterne entre reproduzir e pausar
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+
+
+    </script>
+</body>
+</html>

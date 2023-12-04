@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>We Can Do It! - Services</title>
+     <!-- Adicione a tag <audio> sem o atributo autoplay -->
+<audio id="backgroundAudio" loop>
+    <source src="Sound/sound_background.mp3" type="audio/mp3">
+</audio>
+
+<!-- Adicione um botão com um emoji de autofalante -->
+<button onclick="toggleAudio()">
+    <span role="img" aria-label="Speaker Emoji">🔊</span> Music
+</button>
+    <script>
+        function showServiceMessage(serviceName) {
+            var message = '';
+
+            switch (serviceName) {
+                case 'cleaning':
+                    message = "Cleaning Services: We take the time to know our customers and design bespoke cleaning solutions for each of them, taking a fresh perspective to deliver exceptional value and service according to their specific needs.";
+                    break;
+                case 'security':
+                    message = "Security Services: We leverage our experience, unique capabilities, and the latest technologies to provide clients with exceptional value and complete peace of mind. The security services we offer range from manned guarding and front-of-house to the provision of cutting-edge cloud-based IoT security solutions.";
+                    break;
+                case 'reception':
+                    message = "Reception Services: Our corporate reception teams assist our clients’ guests from the time of their arrival until the time they leave. Our teams seek to enhance the visitor experience with every interaction. They create a great first impression, anticipate a guest’s needs and provide those extra touches that make a visit to your premises memorable for all the right reasons.";
+                    break;
+                default:
+                    break;
+            }
+
+            alert(message);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <a href="index.html"><img src="logo.png" alt="We Can Do It!"></a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="servicos.html">Services</a></li>
+                <li><a href="feedback.html">Customer Feedback</a></li>
+                <li><a href="contato.html">Talk to Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Banner laranja centralizado -->
+    <section class="banner">
+        <div class="banner-content">
+            <h2>Services</h2>
+            <p>Our team of experts can provide you with a wide range of services for various sectors while adapting our approach to your specific demands. We offer:</p>
+        </div>
+    </section>
+    <!-- Serviços -->
+    <section class="services">
+        <div class="service" onclick="showServiceMessage('cleaning')">
+            <img src="cleaning.jpg" alt="Cleaning Services">
+            <h3>Cleaning Services</h3>
+            <p>Discover the convenience of our professional cleaning services. We specialize in creating spotless spaces, tailored to fit your schedule and needs. Enjoy a fresh, welcoming environment without the hassle. Elevate your surroundings with our reliable and efficient cleaning solutions.</p>
+        </div>
+        <div class="service" onclick="showServiceMessage('security')">
+            <img src="security.jpg" alt="Security Services">
+            <h3>Security Services</h3>
+            <p>Our security services are crafted to safeguard what matters most to you. With a focus on vigilance and reliability, we provide a shield of protection for your home or business. Trust in our expertise to ensure a secure environment, allowing you to rest easy knowing you're in safe hands. Choose confidence, choose our security services.</p>
+        </div>
+        <div class="service" onclick="showServiceMessage('reception')">
+            <img src="reception.jpg" alt="Reception Services">
+            <h3>Reception Services</h3>
+            <p>Our reception services redefine the first impression. Dedicated to creating a warm and professional atmosphere, we ensure every visitor feels valued and attended to. From managing inquiries to providing assistance, our reception services elevate the guest experience. Choose seamless hospitality with our commitment to excellence.</p>
+        </div>
+    </section>
+    
+</body>
+<script>
+    function toggleAudio() {
+        var audio = document.getElementById("backgroundAudio");
+
+        // Verifique se o áudio está pausado e alterne entre reproduzir e pausar
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }
+</script>
+</html>
